@@ -36,8 +36,19 @@ A string de conexão já está configurada no `appsettings.json`:
 }
 ```
 
-O banco (`DigitalBank.db`) será criado automaticamente na raiz da API ao executar a aplicação.
+---
 
+### 🧱 Aplicando a migration
+
+Antes de executar a API, é necessário aplicar a migration para que as tabelas sejam criadas no banco de dados.
+
+Execute o seguinte comando na raiz do projeto:
+
+```bash
+dotnet ef database update --project DigitalBank.Infra.Data --startup-project DigitalBank.API
+```
+
+> Isso criará o arquivo `DigitalBank.db` com as tabelas necessárias.
 ---
 
 ### 🚀 Rodando a API

@@ -1,5 +1,7 @@
 ﻿using DigitalBank.API.Utilities;
 using DigitalBank.Util.Exceptions;
+using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Text.Json;
 
@@ -25,6 +27,16 @@ public class ExceptionMiddleware
         catch (DomainException ex)
         {
             await HandleExceptionAsync(context, ex.Message, HttpStatusCode.BadRequest);
+        }
+        catch (ValidationException ex)
+        {
+            var errors = ex.Errors.Select(e => e.ErrorMessage);
+            var message = string.Join(" | ", errors);
+            await HandleExceptionAsync(context, message, HttpStatusCode.BadRequest);
+        }
+        catch (DbUpdateException ex)
+        {
+            await HandleExceptionAsync(context, "Erro ao salvar dados no banco. Verifique os dados enviados.", HttpStatusCode.BadRequest);
         }
         catch (Exception ex)
         {

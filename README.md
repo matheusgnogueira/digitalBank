@@ -1,3 +1,7 @@
+![.NET](https://img.shields.io/badge/.NET-8.0-blue)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
+
+
 # 💳 DigitalBank API
 
 Sistema de caixa de banco.

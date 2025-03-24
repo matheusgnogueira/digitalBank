@@ -1,10 +1,8 @@
-﻿using DigitalBank.Infra.Data.Context; 
+﻿using DigitalBank.Infra.Data.Context;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System.Linq;
 
 namespace DigitalBank.Tests.Integration;
 
